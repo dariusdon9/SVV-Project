@@ -1,0 +1,2 @@
+I made the basic of webserver and I compiled the program with command window for verification, in parallel , two command line windows, in one I wrote javac Client.java, in the other one I wrote javac Server.java,
+After that, I wrote java Client, and java Server and in the server window I received two messages, Client Connected and a message which is typed in Client Window
