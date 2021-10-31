@@ -226,6 +226,7 @@ public class Main extends Application {
         close_close.setGraphic(imageView1);
 
         close_close.setOnAction(e->{
+            stage.setTitle("Maintenance");
             Server_Status1.setText("Server Status: Ready For Maintenance!");
             System.out.println("Server Closed");
             close_all.setSpacing(100);
@@ -245,15 +246,79 @@ public class Main extends Application {
         v3.getChildren().addAll(WebServerConfig1,ServerListeningOnPort,WebRootDirectory1,MaintenanceDirectory1);
         VBox v4 = new VBox();
         v4.getChildren().addAll(label1,text1,text2,text3);
-
-
         HBox h2 = new HBox();
         h2.getChildren().addAll(v3,v4);
         h2.setSpacing(200);
         h2.setAlignment(Pos.CENTER);
-
         close_all.getChildren().addAll(h1,h2);
 
+        Label maintain_info = new Label("Info:");
+        maintain_info.setFont(Font.font(14));
+
+        TextField maintain1 = new TextField();
+        TextField maintain2 = new TextField();
+        TextField maintain3 = new TextField();
+
+        maintain1.setDisable(false);
+        maintain2.setDisable(false);
+        maintain3.setDisable(true);
+
+        VBox maintain_last = new VBox();
+        maintain_last.setAlignment(Pos.CENTER);
+        maintain_last.getChildren().addAll(maintain_info,maintain1,maintain2,maintain3);
+
+        Label WebServerConfig2= new Label("Web Server Configuration:");
+        Label ServerListeningOnPort2 = new Label("Server Listening On Port:");
+        Label WebRootDirectory2 = new Label("Web Root Directory:");
+        Label MaintenanceDirectory2 = new Label("Maintenance Directory:");
+
+        WebServerConfig2.setFont(Font.font(14));
+        ServerListeningOnPort2.setFont(Font.font(14));
+        WebRootDirectory2.setFont(Font.font(14));
+        MaintenanceDirectory2.setFont(Font.font(14));
+
+        VBox maintain_labels = new VBox();
+        maintain_labels.setAlignment(Pos.CENTER);
+        maintain_labels.getChildren().addAll(WebServerConfig2,ServerListeningOnPort2,WebRootDirectory2,MaintenanceDirectory2);
+        HBox main_bottom = new HBox();
+        main_bottom.setAlignment(Pos.CENTER);
+        main_bottom.setSpacing(200);
+        main_bottom.getChildren().addAll(maintain_labels,maintain_last);
+        Label WebServerInfo2 = new Label("Web server INFO:");
+        Label Server_Status2 = new Label("Server Status:Not Running ");
+        Label Server_Adress2 = new Label("Server Adress: Not Running ");
+        Label Server_Port2 = new Label("Server Port: Not Running");
+
+        WebServerInfo2.setFont(Font.font(14));
+        Server_Status2.setFont(Font.font(14));
+        Server_Adress2.setFont(Font.font(14));
+        Server_Port2.setFont(Font.font(14));
+
+        VBox top_main = new VBox();
+        top_main.setAlignment(Pos.CENTER);
+        top_main.getChildren().addAll(WebServerInfo2,Server_Status2,Server_Adress2,Server_Port2);
+
+        VBox last = new VBox();
+
+        last.getChildren().addAll(top_main,main_bottom);
+        last.setAlignment(Pos.CENTER);
+        last.setSpacing(100);
+
+        Scene maintenance = new Scene(last,700,500);
+        Button back2 = new Button("Back");
+        back2.setOnAction(e->stage.setScene(home_scene));
+        maintain1.setMaxWidth(50);
+        maintain.setOnAction(e->{
+            stage.setTitle("Web Server [Maintenance]");
+            stage.setScene(maintenance);
+
+            Server_Status2.setText(Server_Status1.getText());
+            Server_Adress2.setText(Server_Adress.getText());
+            Server_Port2.setText(Server_Adress.getText());
+            maintain1.setDisable(true);
+           // last.getChildren().addAll(start_server,close_close);
+            last.getChildren().add(back);
+        });
         stage.show();
     }
 
