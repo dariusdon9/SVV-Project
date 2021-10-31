@@ -157,8 +157,106 @@ public class Main extends Application {
             stage.setTitle("StartWindow");
         });
         back.setOnAction(e-> stage.setScene(home_scene));
+
+        VBox close_all = new VBox();
+        close_all.setAlignment(Pos.CENTER);
+        Scene close_scene = new Scene(close_all,700,500);
+
+        Label WebServerInfo1 = new Label("Web server INFO:");
+        Label Server_Status1 = new Label("Server Status:Not Running ");
+        Label Server_Adress1 = new Label("Server Adress: Not Running ");
+        Label Server_Port1 = new Label("Server Port: Not Running");
+
+        WebServerInfo1.setFont(Font.font(14));
+        Server_Status1.setFont(Font.font(14));
+        Server_Adress1.setFont(Font.font(14));
+        Server_Port1.setFont(Font.font(14));
+
+        Label WebServerConfig1 = new Label("Web Server Configuration:");
+        Label ServerListeningOnPort1 = new Label("Server Listening On Port:");
+        Label WebRootDirectory1 = new Label("Web Root Directory:");
+        Label MaintenanceDirectory1 = new Label("Maintenance Directory:");
+
+        WebServerConfig1.setFont(Font.font(14));
+        ServerListeningOnPort1.setFont(Font.font(14));
+        WebRootDirectory1.setFont(Font.font(14));
+        MaintenanceDirectory1.setFont(Font.font(14));
+
+        root.getText();
+        maintain.getText();
+
+        VBox vbox1 = new VBox();
+        vbox1.setAlignment(Pos.TOP_CENTER);
+        vbox1.getChildren().addAll(WebServerInfo1,Server_Status1,Server_Adress1,Server_Port1);
+        VBox vbox2 = new VBox();
+
+        TextField text1 = new TextField(portText.getText());
+        TextField text2 = new TextField();
+        text1.setMaxWidth(50);
+        TextField text3 = new TextField();
+        Label label1 = new Label("Info:");
+        label1.setFont(Font.font(14));
+
+        close.setOnAction(e->{
+            stage.setScene(close_scene);
+            stage.setTitle("Web Server is running!!!");
+            Server_Status1.setText(Server_Status.getText());
+            Server_Adress1.setText(Server_Adress.getText());
+            Server_Port1.setText(Server_Port.getText());
+            text1.setText(portText.getText());
+            text2.setText(root.getText());
+            text3.setText(maintain_text.getText());
+            text1.setDisable(true);
+            text2.setDisable(true);
+        });
+
+        Button back1 = new Button("Back");
+        back1.setTextFill(RED);
+        back1.setFont(Font.font(14));
+        back1.setOnAction(ex->stage.setScene(home_scene));
+
+        Button close_close = new Button("Close");
+        close_close.setTextFill(RED);
+        close_close.setFont(Font.font(14));
+
+        InputStream stream1 =  new FileInputStream("src/main/java/com/example/webserver/2.jpg");
+        Image image1 = new Image(stream1);
+        ImageView imageView1= new ImageView();
+        imageView1.setImage(image1);
+        close_close.setGraphic(imageView1);
+
+        close_close.setOnAction(e->{
+            Server_Status1.setText("Server Status: Ready For Maintenance!");
+            System.out.println("Server Closed");
+            close_all.setSpacing(100);
+            close_all.getChildren().add(back1);
+        });
+        vbox1.setAlignment(Pos.CENTER);
+        vbox2.setAlignment(Pos.CENTER);
+        vbox2.getChildren().addAll(close_close);
+
+        HBox h1 = new HBox();
+        h1.setAlignment(Pos.CENTER);
+        h1.setSpacing(200);
+        h1.getChildren().addAll(vbox1,vbox2);
+        close_all.setAlignment(Pos.TOP_CENTER);
+        close_all.setSpacing(200);
+        VBox v3 = new VBox();
+        v3.getChildren().addAll(WebServerConfig1,ServerListeningOnPort,WebRootDirectory1,MaintenanceDirectory1);
+        VBox v4 = new VBox();
+        v4.getChildren().addAll(label1,text1,text2,text3);
+
+
+        HBox h2 = new HBox();
+        h2.getChildren().addAll(v3,v4);
+        h2.setSpacing(200);
+        h2.setAlignment(Pos.CENTER);
+
+        close_all.getChildren().addAll(h1,h2);
+
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
