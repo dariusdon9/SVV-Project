@@ -1,5 +1,11 @@
-package com.example.webserver;
+package src;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.Date;
+
+import static src.Server.PORT;
+import static src.Server.verbose;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
