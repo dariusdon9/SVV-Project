@@ -1,150 +1,104 @@
-package src;
+package Test;
 
-import org.junit.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import src.Server;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.Semaphore;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static src.Server.*;
-import static src.Server.verbose;
+import static src.Server.connect;
 
-class ServerTest {
-
-
-    private static final int PORT = 8080;
-    private OutputStream serverOut;
-    private InputStream serverIn;
-    ServerSocket server = new ServerSocket(PORT);
-    private Semaphore lock = new Semaphore(0);
-
-    ServerTest() throws IOException {
+public class ServerTest {
+    @Test
+    //test for first case getContentType
+    public void testContentHtml() throws IOException {
+       ServerSocket server = new ServerSocket(8081);
+       Socket socket = new Socket("localhost", 8081);
+       Server server2 = new Server(socket);
+        String string = new String("test.html");
+        assertEquals(server2.getContentType(string),"text/html");
     }
 
     @Test
-    public void testClientServer() throws IOException, InterruptedException {
-        listen(server);
-
-        Socket client = new Socket("localhost", PORT);
-
-        OutputStream clientOut = client.getOutputStream();
-        InputStream clientIn = client.getInputStream();
-        Assertions.assertNotEquals(clientIn,null);//verify that inputstream has a value
-        Assertions.assertEquals(clientOut,null);//verify that outputstram has a value
-
-        System.out.println("Wait");
-        lock.acquire();
-        System.out.println("Lock Done");
-
-        write(clientOut,"Hello babe!");
-        reading(clientIn,"Hello babe!");
+    //test for get content
+    public void testContentHtml1() throws IOException {
+        ServerSocket server = new ServerSocket(8082);
+        Socket socket = new Socket("localhost", 8082);
+        Server server2 = new Server(socket);
+        String string = new String("test.htm");
+        assertEquals(server2.getContentType(string),"text/html");
+    }
+    @Test
+    //cover the get content type
+    public void testContentText() throws IOException {
+        ServerSocket server = new ServerSocket(8083);
+        Socket socket = new Socket("localhost", 8083);
+        Server server2 = new Server(socket);
+        String string = new String("test.txt");
+        assertEquals(server2.getContentType(string),"text/plain");
     }
 
-    private void write(OutputStream out, String string) throws IOException {
-        out.write(string.getBytes());
-        out.flush();
+    @Test
+    //cover the stop function
+    public void checkStop() throws IOException {
+        ServerSocket server = new ServerSocket(8084);
+        Socket socket = new Socket("localhost", 8084);
+        Server server2 = new Server(socket);
+        assertTrue(socket.isConnected());
+        assertEquals(socket,connect);
+        assertNotEquals(server2.stop(),true);
     }
 
-    private void printWrite(OutputStream out, String string) throws IOException {
-        PrintWriter printWriter = new PrintWriter(out);
-        printWriter.print(string);
+    @Test
+    //test for running the run()
+    public void checkbasicRun() throws IOException {
+        ServerSocket server = new ServerSocket(8085);
+        Socket socket = new Socket("localhost", 8085);
+        Server server2 = new Server(socket);
+
+        server2.run();
+        server2.stop();
+    }
+    @Test
+    //test for null principal variables for test
+    public void checkadvancedRun() throws IOException {
+        ServerSocket server = new ServerSocket(8085);
+        Socket socket = new Socket("localhost", 8085);
+        Server server2 = new Server(socket);
+
+      BufferedReader input1 = null;
+      PrintWriter output1 = null;
+      String request1 = null;
+      BufferedOutputStream dataOutput1 = null;
+
+      assertEquals(dataOutput1,server2.dataOutput);
+      assertEquals(output1,server2.output);
+      assertEquals(input1,server2.input);
+      assertEquals(request1,server2.request);
     }
 
-    private void reading(InputStream in,String message) throws IOException{
-        Assertions.assertEquals(Float.parseFloat("Wrong bytes dimension:"), message.length(),in.available());
-        byte[] buff = new byte[message.length()];
-        in.read(buff);
-        Assertions.assertEquals(message,new String(buff));
+
+    @Test
+    //test for socket constructor
+    public void checkSocket() throws IOException {
+        ServerSocket server = new ServerSocket(8089);
+        Socket socket = new Socket("localhost", 8089);
+        Server server2 = new Server(socket);
+        assertEquals(socket,connect);
+
     }
 
-    @BeforeEach
-    void setUp() throws IOException {
-        Socket socket = new Socket();
-        socket.getLocalPort();
-        socket.getLocalAddress();
-        socket.connect(server.getLocalSocketAddress());
-        server.accept();
+    @Test
+    //verify the value of verbose
+   public void checkFile() throws IOException {
+        ServerSocket server = new ServerSocket(8087);
+        Socket socket = new Socket("localhost", 8087);
+        Server server2 = new Server(socket);
+        boolean verbose = true;
+        assertEquals(verbose,true);
     }
 
-    @AfterEach
-    void tearDown() throws IOException{
-        Socket socket = new Socket();
-        server.close();
-        socket.close();
-    }
-    private void listen(ServerSocket server){
-        new Thread(()->{
-            try {
-                Socket socket = server.accept();
-                System.out.println(socket);
 
-                serverOut = socket.getOutputStream();
-                serverIn = socket.getInputStream();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
-    }
-    private String string;
-
-    @org.junit.jupiter.api.Test
-    public void FindFile() {
-        File file = new File("C:\\Users\\Darius\\Desktop\\Try_Web\\src\\src");
-        assertTrue(file.exists());
-        assertEquals(true, file.isDirectory());
-    }
-
-    public void verifyVariable( String string){
-
-        if(string.equals("com/example/webserver/index.html")){
-            System.out.println("Index Path Verified");
-            assertTrue(string.equals(defaultfileault));
-        }
-
-        else if(string.equals("com/example/webserver/404.html")){
-            System.out.println("404 Path Verified");
-            assertTrue(string.equals(not_found));
-        }
-
-        else if(string.equals("com/example/webserver/not_supported.html")){
-            System.out.println("Not_Suported Path Verified");
-            assertTrue(string.equals(not_supported));
-        }
-
-        else{
-            System.out.println("Wrong path");
-        }
-    }
-    @org.junit.jupiter.api.Test
-    public void verifyBoolean(){
-        assertNotEquals(verbose,false);
-    }
-    private void print(String out){
-        System.out.println(out);
-    }
-
-    private final PrintStream standardout = System.out;
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-    @BeforeEach
-    public void setUp_out(){
-        System.setOut(new PrintStream(outputStream));
-    }
-
-    @org.junit.jupiter.api.Test
-    void givenSystemOut(){
-        print("Hello");
-        Assert.assertEquals("Hello",outputStream.toString().trim());
-    }
-
-    @BeforeEach
-    public void tearDown_out(){
-        System.setOut(standardout);
-    }
 }
-
