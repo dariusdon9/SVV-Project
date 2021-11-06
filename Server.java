@@ -1,15 +1,6 @@
-package com.example.webserver;
+package src;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
+import java.io.*;
 import java.net.Socket;
 import java.util.Date;
 import java.util.StringTokenizer;
@@ -18,90 +9,82 @@ import static java.lang.System.out;
 
 public class Server implements Runnable{
 
-    static final File root = new File(".");
-    static final String defaultfileault = "index.html";
-    static final String not_found = "404.html";
-    static final String not_supported = "not_supported.html";
-    // port to listen connection
-    static final int PORT = 8080;
+    public final File root = new File("com/example/webserver");
+    static final String defaultfileault = "com/example/webserver/index.html";
+    public static String not_found = "com/example/webserver/404.html";
+    static final String not_supported = "com/example/webserver/not_supported.html";
+    static final String string404 = "404 File Not Found";
+    public static final int PORT = 8080;
 
     // verbose mode
-    static final boolean verbose = true;
-
+    public static final boolean verbose = true;
     // Client Connection via Socket Class
-    private final Socket connect;
 
-    public Server(Socket c) {
+    public static Socket connect;
+
+    public Server(Socket c) throws IOException {
         connect = c;
     }
 
-    public static void main(String[] args) {
-        try {
-            ServerSocket serverConnect = new ServerSocket(PORT);
-            out.println("Server started......\n");
-            out.println("Connections on port : " + PORT + " ...\n");                    
-
-            // lsiten server execution
-            while (true) {
-                Server server = new Server(serverConnect.accept());
-
-                if (verbose) {
-                    out.println("Connecton opened. (" + new Date() + ")");
-                }
-                //dedicated thread
-                Thread thread = new Thread(server);
-                thread.start();
-            }
-
-        } catch (IOException e) {
-            System.err.println("Server Connection error : " + e.getMessage());
-        }
+    public boolean stop() throws IOException {
+        connect.close();
+        return false;
     }
+
+    public BufferedReader input;
+    public PrintWriter output;
+    public String request;
+    public BufferedOutputStream dataOutput;
+
+    public String in;
+    public StringTokenizer parse;
+    public String method;
 
     @Override
     public void run() {
         // particular connection
-        BufferedReader input = null;
-        PrintWriter output = null;
-        String request = null;
-        BufferedOutputStream dataOutput = null;
+        //100% coverage on the input,output,request,dataOutput variables
 
+        input = null;
+        output = null;
+        request = null;
+        dataOutput = null;
+
+        // port to listen connection
         try {
-          
+
             input = new BufferedReader(new InputStreamReader(connect.getInputStream()));
-            
+
             output = new PrintWriter(connect.getOutputStream());
-            
+
             dataOutput = new BufferedOutputStream(connect.getOutputStream());
 
             // first line of client request
-            String in = input.readLine();
+            in = input.readLine();
             // request parsing with string tokenizer
-            StringTokenizer parse = new StringTokenizer(in);
+            parse = new StringTokenizer(in);
             //http method of the client
-            String method = parse.nextToken().toUpperCase(); 
+            method = parse.nextToken().toUpperCase();
             // requested file
             request = parse.nextToken().toLowerCase();
-
             // we check only get and head methods
+
             if (!method.equals("GET")  &&  !method.equals("HEAD")) {
                 if (verbose) {
-                    out.println("501 Not Implemented : " + method + " method.");
+                    System.out.println("501 Not Implemented : " + method + " method.");
                 }
 
-                
                 File file = new File(root, not_supported);
                 int fileLength = (int) file.length();
                 String content_type = "text/html";
                 //read content to return to client
                 byte[] fileData = readFileData(file, fileLength);
-                
-                out.println("HTTP/1.1 501 Not Implemented");
-                out.println("Date: " + new Date());
-                out.println("Content type: " + content_type);
-                out.println("Content length: " + fileLength);
-                out.println(); // blank line between headers and content, very important !
-                out.flush(); // flush character output stream buffer
+                System.out.println("HTTP/1.1 501 Not Implemented");
+                System.out.println("Date: " + new Date());
+                System.out.println("Content type: " + content_type);
+                System.out.println("Content length: " + fileLength);
+                System.out.println(); // blank line between headers and content, very important !
+                System.out.flush(); // flush character output stream buffer
                 // file
                 dataOutput.write(fileData, 0, fileLength);
                 dataOutput.flush();
@@ -120,12 +103,12 @@ public class Server implements Runnable{
                     byte[] fileData = readFileData(file, fileLength);
 
                     // send HTTP Headers
-                    out.println("HTTP/1.1 200 OK");
-                    out.println("Date: " + new Date());
-                    out.println("Content-type: " + content);
-                    out.println("Content-length: " + fileLength);
-                    out.println();
-                    out.flush(); 
+                    System.out.println("HTTP/1.1 200 OK");
+                    System.out.println("Date: " + new Date());
+                    System.out.println("Content-type: " + content);
+                    System.out.println("Content-length: " + fileLength);
+                    System.out.println();
+                    System.out.flush();
 
                     dataOutput.write(fileData, 0, fileLength);
                     dataOutput.flush();
@@ -137,8 +120,12 @@ public class Server implements Runnable{
 
             }
 
+
+
         } catch (FileNotFoundException fnfe) {
             try {
+                assert output != null;
+                assert dataOutput != null;
                 fileNotFound(output, dataOutput, request);
             } catch (IOException ioe) {
                 System.err.println("Error with file not found exception : " + ioe.getMessage());
@@ -148,8 +135,10 @@ public class Server implements Runnable{
             System.err.println("Server error : " + ioe);
         } finally {
             try {
+                assert input != null;
                 input.close();
                 out.close();
+                assert dataOutput != null;
                 dataOutput.close();
                 connect.close(); // we close socket connection
             } catch (Exception e) {
@@ -157,17 +146,21 @@ public class Server implements Runnable{
             }
 
             if (verbose) {
-                out.println("Connection closed.\n");
+                System.out.println("Connection closed.\n");
+                try {
+                    stop();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
-
     }
+    public FileInputStream fileIn;
+    public byte[] fileData;
 
     private byte[] readFileData(File file, int fileLength) throws IOException {
-        FileInputStream fileIn = null;
-        byte[] fileData = new byte[fileLength];
-
+        fileIn = null;
+        fileData = new byte[fileLength];
         try {
             fileIn = new FileInputStream(file);
             fileIn.read(fileData);
@@ -175,37 +168,46 @@ public class Server implements Runnable{
             if (fileIn != null)
                 fileIn.close();
         }
-
         return fileData;
     }
 
     // return supported MIME Types
-    private String getContentType(String request) {
+
+    //tested both branches
+    //100 line coverage
+    public String getContentType(String request) {
         if (request.endsWith(".htm")  ||  request.endsWith(".html"))
             return "text/html";
         else
             return "text/plain";
     }
 
-    private void fileNotFound(PrintWriter out, OutputStream dataOut, String request) throws IOException {
-        File file = new File(root, not_found);
+    public String content;
+    public File file = new File(root, not_found);
+
+     public void fileNotFound(PrintWriter output, OutputStream dataOut, String request) throws IOException {
         int fileLength = (int) file.length();
-        String content = "text/html";
+        content = "text/html";
+
         byte[] fileData = readFileData(file, fileLength);
 
-        out.println("404 File Not Found");
-        out.println("Date: " + new Date());
-        out.println("Content-type: " + content);
-        out.println("Content-length: " + fileLength);
-        out.println(); // blank line between headers and content, very important !
-        out.flush(); // flush character output stream buffer
+
+        System.out.println(string404);
+        System.out.println("Date: " + new Date());
+        System.out.println("Content-type: " + content);
+        System.out.println("Content-length: " + fileLength);
+
+
+        System.out.println(); // blank line between headers and content, very important !
+        System.out.flush(); // flush character output stream buffer
 
         dataOut.write(fileData, 0, fileLength);
         dataOut.flush();
+        output.println("Found");
 
         if (verbose) {
             System.out.println("File " + request + " not found");
         }
     }
-
 }
+
