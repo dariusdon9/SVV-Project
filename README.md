@@ -14,4 +14,7 @@ static analisys
 ![Dynamic](https://user-images.githubusercontent.com/91960095/143680680-54c87817-d87b-4c40-832f-0018f89a4d0f.png)
 dynamic analisys
 
+![SVV2](https://user-images.githubusercontent.com/91960095/144493023-63206e2f-67af-4b56-8761-e27ccc120974.png)
 
+![SVV3](https://user-images.githubusercontent.com/91960095/144493029-03d6de2f-761b-40e5-9a68-2cfb4b77eb0d.png)
+I added another two tabs of dynamic analysis.
