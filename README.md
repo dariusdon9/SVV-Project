@@ -20,3 +20,11 @@ dynamic analisys
 I added another two tabs of dynamic analysis.
 ![TreeDisplay](https://user-images.githubusercontent.com/91960095/144711202-70fe3c2e-4fce-44a8-99b8-e7ed32f4f738.jpg)
 I uploaded a provement of three display structure
+I go on a brench of my project, because i don t want to update 31 screenshots
+Index:![image1](https://user-images.githubusercontent.com/91960095/145676796-25a5690f-6aed-4e50-9ab4-1b30aaf23b4b.png)
+page1:![image2](https://user-images.githubusercontent.com/91960095/145676840-91807962-e831-49df-855e-5b6f8210e745.png)
+page4:![image3](https://user-images.githubusercontent.com/91960095/145676851-e37b55f6-f2aa-4b8f-9d47-65c822651003.png)
+page14:![PAGE14](https://user-images.githubusercontent.com/91960095/145676873-6929daa4-5550-401a-bee4-162b5f9cbf40.png)
+page15:![PAGE15](https://user-images.githubusercontent.com/91960095/145676912-12c2e8fd-993e-4b56-887e-f4e19be74b63.png)
+
+
