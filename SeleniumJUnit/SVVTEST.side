@@ -1,0 +1,397 @@
+{
+  "id": "672ef83b-09f3-4675-aaf3-272b61cb26e0",
+  "version": "2.0",
+  "name": "SVVTEST",
+  "url": "http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=uvorufv1ikuntc8u4729lh754u&_ij_reload=RELOAD_ON_SAVE",
+  "tests": [{
+    "id": "7492fa55-c17b-4828-a4d6-2bbbbcf3cd95",
+    "name": "Test1",
+    "commands": []
+  }, {
+    "id": "627d353e-37a6-4684-86d1-a12ba3a70568",
+    "name": "Test2",
+    "commands": [{
+      "id": "69fd44a1-a1f0-4304-ad9c-199c5ddd72ae",
+      "comment": "",
+      "command": "open",
+      "target": "file:///C:/Users/Darius/Desktop/ServerDon/src/main/java/com/example/serverdon/html/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd7e5bcf-062f-4b40-a632-64bed83f1f23",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x695",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1e29c39-10d1-4d47-8206-05fe19a39ff5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page1:Page1.HTML",
+      "targets": [
+        ["linkText=Page1:Page1.HTML", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page1:Page1.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page1.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page1:Page1.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14dc525a-01ba-4b1d-b707-e80208944b1a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page2:Page2.HTML",
+      "targets": [
+        ["linkText=Page2:Page2.HTML", "linkText"],
+        ["css=p:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page2:Page2.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page2\\Page2.html')]", "xpath:href"],
+        ["xpath=//p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page2:Page2.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14fd7279-ac4e-4c52-85aa-652d25ad87d2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page3:Page3.HTML",
+      "targets": [
+        ["linkText=Page3:Page3.HTML", "linkText"],
+        ["css=p:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page3:Page3.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page3\\Page3.html')]", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page3:Page3.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a61fe181-a4bf-490f-b867-65a4839c6894",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page1:Page1.HTML",
+      "targets": [
+        ["linkText=Page1:Page1.HTML", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page1:Page1.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page1.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page1:Page1.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24668502-94ad-4813-954b-bed5a123e7db",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page2:Page2.HTML",
+      "targets": [
+        ["linkText=Page2:Page2.HTML", "linkText"],
+        ["css=p:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page2:Page2.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page2\\Page2.html')]", "xpath:href"],
+        ["xpath=//p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page2:Page2.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e38c3cc-07e3-402c-93d6-20ea37d1fa8a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page3:Page3.HTML",
+      "targets": [
+        ["linkText=Page3:Page3.HTML", "linkText"],
+        ["css=p:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page3:Page3.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page3\\Page3.html')]", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page3:Page3.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7e614d5-e741-4d2e-8a55-5f2d4a4d6315",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bfd55d5-0cc8-4212-a051-6735b19f3e1c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 4:Page4.html",
+      "targets": [
+        ["linkText=Page 4:Page4.html", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 4:Page4.html')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page4\\Page4.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 4:Page4.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98709339-5995-4126-8ff5-4d0787e07593",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 5:Page5.html",
+      "targets": [
+        ["linkText=Page 5:Page5.html", "linkText"],
+        ["css=p:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 5:Page5.html')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page5\\Page5.html')]", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 5:Page5.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f705d84-ff13-47e8-bbbf-fb21e3be7450",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 6:Page6.html",
+      "targets": [
+        ["linkText=Page 6:Page6.html", "linkText"],
+        ["css=p:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 6:Page6.html')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page6\\Page6.html')]", "xpath:href"],
+        ["xpath=//p[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 6:Page6.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7620cbd-ea04-44db-985b-b42c2f0ce77e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Index",
+      "targets": [
+        ["linkText=Index", "linkText"],
+        ["css=p:nth-child(8) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Index')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\index.html')]", "xpath:href"],
+        ["xpath=//p[7]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Index')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84ab3aa3-747f-4169-9940-b6b32a963d25",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "43f00515-d270-48c9-9326-c73026771848",
+    "name": "Test3",
+    "commands": [{
+      "id": "bcff3a0c-640f-4728-ae2b-c2887a2ff0d0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=aga001t7kkosd7h0onqmopi31p&_ij_reload=RELOAD_ON_SAVE",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c891bfe1-9a5e-4143-96bc-7c034c8933b8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x695",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0dfe2ef-f7f9-44a8-94fb-2e52a0caba13",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page1:Page1.HTML",
+      "targets": [
+        ["linkText=Page1:Page1.HTML", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page1:Page1.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page1\\Page1.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page1:Page1.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e60d0201-3f4a-49b8-9694-ad2aafc57203",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page2:Page2.HTML",
+      "targets": [
+        ["linkText=Page2:Page2.HTML", "linkText"],
+        ["css=p:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page2:Page2.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page2\\Page2.html')]", "xpath:href"],
+        ["xpath=//p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page2:Page2.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fec1cc33-72f0-4f2d-b7f9-b6413e3001ee",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page3:Page3.HTML",
+      "targets": [
+        ["linkText=Page3:Page3.HTML", "linkText"],
+        ["css=p:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page3:Page3.HTML')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'C:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\Page3\\Page3.html')]", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page3:Page3.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f799f5f-fbb6-4d18-9c41-0ea19d5befa3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1287465f-47cd-49f8-9519-8b323a39679d",
+    "name": "Final_Test",
+    "commands": [{
+      "id": "eb4c7dc9-0aee-452a-8905-7b65a144bf1a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=uvorufv1ikuntc8u4729lh754u&_ij_reload=RELOAD_ON_SAVE",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7cccbe18-b8f1-4d3e-8afe-fc5e68294811",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1550x838",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c2daeba8-02b6-4f2f-b85b-5c5fed57d1bb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page1:Page1.HTML",
+      "targets": [
+        ["linkText=Page1:Page1.HTML", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page1:Page1.HTML')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page1.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page1:Page1.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf88e6b6-83c4-4ab4-9f3c-1cc0eb17497f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 4:Page4.html",
+      "targets": [
+        ["linkText=Page 4:Page4.html", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 4:Page4.html')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page4/Page4.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 4:Page4.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84dce055-8fc9-41a6-88bf-9e2ee55fab23",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 14:Page14.html",
+      "targets": [
+        ["linkText=Page 14:Page14.html", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 14:Page14.html')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page4/Page14/Page14.html?_ijt=rb877si4ne0ef9j8sdd4fdi46q&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 14:Page14.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12b242d8-a246-4a2b-971c-154a5e4db03c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Index",
+      "targets": [
+        ["linkText=Index", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'Index')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Index')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a28226b4-4c5a-410d-9125-87adbebc7b24",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page1:Page1.HTML",
+      "targets": [
+        ["linkText=Page1:Page1.HTML", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page1:Page1.HTML')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page1.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page1:Page1.HTML')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b179db8-edd5-4c84-84d9-6e5c3844a6f4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 4:Page4.html",
+      "targets": [
+        ["linkText=Page 4:Page4.html", "linkText"],
+        ["css=p:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 4:Page4.html')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page4/Page4.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 4:Page4.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0368381a-d306-4da2-9bea-433254a30df1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Page 15:Page15.html",
+      "targets": [
+        ["linkText=Page 15:Page15.html", "linkText"],
+        ["css=p:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Page 15:Page15.html')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/Page1/Page4/Page15/Page15.html?_ijt=uvorufv1ikuntc8u4729lh754u&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//p[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Page 15:Page15.html')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "28b2b329-dd9f-434e-b960-663ff2c4245a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Index",
+      "targets": [
+        ["linkText=Index", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'Index')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=6l45ke1n83lpem4h7rfq8krbpv&_ij_reload=RELOAD_ON_SAVE']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Index')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f006fe98-104d-4d0a-bad2-e70a06204a11",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ed0e266b-bf60-46af-835d-d1c466c41d17",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7492fa55-c17b-4828-a4d6-2bbbbcf3cd95"]
+  }],
+  "urls": ["c:\\Users\\Darius\\Desktop\\ServerDon\\src\\main\\java\\com\\example\\serverdon\\html\\index.html", "http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=aga001t7kkosd7h0onqmopi31p&_ij_reload=RELOAD_ON_SAVE", "http://localhost:63342/ServerDon/com/example/serverdon/html/index.html?_ijt=uvorufv1ikuntc8u4729lh754u&_ij_reload=RELOAD_ON_SAVE"],
+  "plugins": []
+}
